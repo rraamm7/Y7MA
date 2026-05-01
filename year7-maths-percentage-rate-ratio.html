@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year 7 Mathematics — Percentage, Rate &amp; Ratio</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--surf:#161b22;--surf2:#21262d;--bdr:#30363d;--txt:#e6edf3;--muted:#8b949e;--t1:#f59e0b;--t2:#a78bfa;--t3:#2dd4bf;--ok:#3fb950;--err:#f85149;--warn:#d29922;}
+body.light{--bg:#fafaf9;--surf:#ffffff;--surf2:#f0f0ee;--bdr:#d4d4d0;--txt:#1c1917;--muted:#78716c;--t1:#d97706;--t2:#7c3aed;--t3:#0d9488;--ok:#15803d;--err:#dc2626;--warn:#b45309;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;transition:background .3s,color .3s;}
+header{background:var(--surf);border-bottom:1px solid var(--bdr);padding:1rem 1.5rem;}
+.hdr{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+header h1{font-size:1.45rem;font-weight:900;letter-spacing:-.5px;}
+header p{color:var(--muted);font-size:.82rem;margin-top:.1rem;}
+.hdr-r{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;}
+.score{display:inline-flex;align-items:center;gap:.3rem;padding:.28rem .75rem;border-radius:20px;font-size:.82rem;font-weight:800;background:var(--surf2);border:1px solid var(--bdr);white-space:nowrap;}
+.theme-btn{padding:.28rem .75rem;border-radius:20px;border:1px solid var(--bdr);background:var(--surf2);color:var(--txt);font-family:'Nunito',sans-serif;font-size:.78rem;font-weight:800;cursor:pointer;}
+.prog{height:4px;background:var(--bdr);}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--t1),var(--t2),var(--t3));width:0%;transition:width .5s;}
+.topic-tabs{display:flex;background:var(--surf);border-bottom:1px solid var(--bdr);overflow-x:auto;}
+.ttab{flex:1;min-width:148px;padding:.82rem 1rem;background:none;border:none;border-bottom:3px solid transparent;color:var(--muted);font-family:'Nunito',sans-serif;font-size:.84rem;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:.38rem;justify-content:center;}
+.ttab:hover{color:var(--txt);}
+.ttab.on[data-t="1"]{color:var(--t1);border-bottom-color:var(--t1);}
+.ttab.on[data-t="2"]{color:var(--t2);border-bottom-color:var(--t2);}
+.ttab.on[data-t="3"]{color:var(--t3);border-bottom-color:var(--t3);}
+.tbadge{width:21px;height:21px;border-radius:50%;font-size:.68rem;font-weight:900;display:flex;align-items:center;justify-content:center;color:#000;}
+[data-t="1"] .tbadge{background:var(--t1);}[data-t="2"] .tbadge{background:var(--t2);}[data-t="3"] .tbadge{background:var(--t3);}
+.act-tabs{display:flex;gap:.4rem;padding:1rem 1.5rem 0;max-width:920px;margin:0 auto;flex-wrap:wrap;}
+.atab{padding:.38rem .85rem;border-radius:20px;background:var(--surf2);border:1px solid var(--bdr);color:var(--muted);font-family:'Nunito',sans-serif;font-size:.82rem;font-weight:700;cursor:pointer;transition:all .2s;}
+.atab:hover{color:var(--txt);}
+.atab.on{color:var(--txt);background:var(--surf);border-color:var(--txt);}
+main{max-width:920px;margin:0 auto;padding:1.2rem 1.5rem 3rem;}
+.tc{display:none;}.tc.on{display:block;}
+.ap{display:none;}.ap.on{display:block;}
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:1.25rem;margin-bottom:.9rem;}
+.ctitle{font-size:1rem;font-weight:800;margin-bottom:.9rem;}
+.c1{color:var(--t1);}.c2{color:var(--t2);}.c3{color:var(--t3);}
+.intro{font-size:.9rem;line-height:1.7;color:var(--muted);margin-bottom:.85rem;}
+.rule{padding:.65rem .9rem;border-radius:0 8px 8px 0;font-size:.84rem;margin-bottom:1rem;border-left:3px solid var(--t1);background:rgba(245,158,11,.08);}
+.rule.p{border-left-color:var(--t2);background:rgba(167,139,250,.08);}
+.rule.t{border-left-color:var(--t3);background:rgba(45,212,191,.08);}
+.steps{display:flex;flex-direction:column;gap:.85rem;}
+.step{display:flex;gap:.85rem;align-items:flex-start;opacity:0;transform:translateY(8px);animation:fu .4s forwards;}
+.step:nth-child(1){animation-delay:.05s;}.step:nth-child(2){animation-delay:.15s;}.step:nth-child(3){animation-delay:.25s;}.step:nth-child(4){animation-delay:.35s;}
+@keyframes fu{to{opacity:1;transform:translateY(0);}}
+.snum{width:31px;height:31px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.82rem;flex-shrink:0;color:#000;}
+.b1{background:var(--t1);}.b2{background:var(--t2);}.b3{background:var(--t3);}
+.sbody h4{font-size:.9rem;font-weight:800;margin-bottom:.2rem;}
+.sbody p{font-size:.84rem;color:var(--muted);line-height:1.6;}
+.mbox{background:var(--surf2);border:1px solid var(--bdr);border-radius:8px;padding:.6rem .85rem;margin-top:.42rem;font-family:'Space Mono',monospace;font-size:.8rem;line-height:1.75;}
+/* QUIZ */
+.qq{margin-bottom:1.3rem;}
+.qtext{font-size:.92rem;font-weight:800;margin-bottom:.6rem;font-family:'Space Mono',monospace;}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:.42rem;}
+.qopt{padding:.56rem .82rem;border:2px solid var(--bdr);border-radius:8px;background:var(--surf2);color:var(--txt);font-family:'Space Mono',monospace;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .15s;text-align:left;}
+.qopt:hover:not(:disabled){border-color:var(--muted);background:var(--surf);}
+.qopt.ok{border-color:var(--ok)!important;background:rgba(63,185,80,.12);color:var(--ok);}
+.qopt.no{border-color:var(--err)!important;background:rgba(248,81,73,.12);color:var(--err);}
+.qopt:disabled{cursor:default;}
+.qfb{margin-top:.38rem;font-size:.8rem;font-weight:700;min-height:.9rem;}
+.qfb.ok{color:var(--ok);}.qfb.no{color:var(--err);}
+.qtotal{text-align:center;padding:.7rem;font-size:.92rem;font-weight:800;}
+/* DRAG */
+.dinstr{font-size:.84rem;color:var(--muted);margin-bottom:.85rem;}
+.dsrc{display:flex;flex-wrap:wrap;gap:.45rem;min-height:50px;padding:.6rem;background:var(--surf2);border:2px dashed var(--bdr);border-radius:10px;margin-bottom:1rem;}
+.dcard{padding:.38rem .8rem;background:var(--surf);border:2px solid var(--bdr);border-radius:8px;font-family:'Space Mono',monospace;font-size:.8rem;font-weight:700;cursor:grab;user-select:none;transition:transform .15s,border-color .15s;}
+.dcard:hover{border-color:var(--muted);transform:translateY(-2px);}
+.dcard.dragging{opacity:.3;}
+.dzgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:.65rem;}
+.dzone{border:2px dashed var(--bdr);border-radius:10px;padding:.65rem;min-height:72px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.22rem;transition:all .2s;}
+.dzone.over{border-color:var(--t1);background:rgba(245,158,11,.06);}
+.dzone.ok{border-color:var(--ok);background:rgba(63,185,80,.08);}
+.dzone.no{border-color:var(--err);background:rgba(248,81,73,.08);}
+.dlabel{font-size:.66rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.dplaced{font-family:'Space Mono',monospace;font-size:.82rem;font-weight:700;}
+.btn-check{display:block;width:100%;padding:.78rem;border-radius:10px;border:none;font-family:'Nunito',sans-serif;font-size:.92rem;font-weight:800;cursor:pointer;margin-top:.85rem;transition:opacity .2s,transform .15s;}
+.btn-check:hover{opacity:.9;transform:translateY(-1px);}
+.bc1{background:var(--t1);color:#000;}.bc2{background:var(--t2);color:#fff;}.bc3{background:var(--t3);color:#000;}
+.btn-reset{display:block;width:100%;padding:.56rem;border-radius:10px;border:1px solid var(--bdr);background:transparent;font-family:'Nunito',sans-serif;font-size:.84rem;font-weight:700;cursor:pointer;margin-top:.42rem;color:var(--muted);transition:color .2s,border-color .2s;}
+.btn-reset:hover{color:var(--txt);border-color:var(--muted);}
+.dres{margin-top:.7rem;font-weight:700;text-align:center;font-size:.88rem;}
+/* ANIMATION */
+.anim-canvas{display:block;width:100%;border-radius:10px 10px 0 0;background:var(--surf2);}
+.anim-cap{background:var(--surf2);border:1px solid var(--bdr);border-top:none;border-radius:0 0 10px 10px;padding:.65rem .95rem;font-size:.84rem;line-height:1.55;min-height:48px;margin-bottom:.8rem;}
+.arow{display:flex;align-items:center;gap:.42rem;flex-wrap:wrap;margin-bottom:.38rem;}
+.abtn{padding:.4rem .85rem;border-radius:8px;border:1px solid var(--bdr);background:var(--surf2);color:var(--txt);font-family:'Nunito',sans-serif;font-size:.82rem;font-weight:700;cursor:pointer;transition:border-color .15s;}
+.abtn:hover{border-color:var(--muted);}
+.abtn.play{background:var(--t1);color:#000;border-color:var(--t1);}
+.sdots{display:flex;gap:.26rem;margin-left:auto;align-items:center;}
+.sdot{width:8px;height:8px;border-radius:50%;background:var(--bdr);transition:all .2s;}
+.sdot.cur{background:var(--t1);transform:scale(1.35);}
+.sdot.done{background:var(--muted);}
+.srow{display:flex;align-items:center;gap:.26rem;flex-wrap:wrap;}
+.slbl{font-size:.74rem;font-weight:800;color:var(--muted);margin-right:.1rem;white-space:nowrap;}
+.spd{padding:.24rem .58rem;border-radius:20px;border:1px solid var(--bdr);background:var(--surf2);color:var(--muted);font-family:'Nunito',sans-serif;font-size:.74rem;font-weight:800;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.spd:hover{color:var(--txt);border-color:var(--muted);}
+.spd.on{background:var(--txt);color:var(--bg);border-color:var(--txt);}
+.vquiz{display:none;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--bdr);}
+.vquiz.show{display:block;}
+.vqtitle{font-size:.9rem;font-weight:800;margin-bottom:.85rem;}
+@media(max-width:540px){header h1{font-size:1.15rem;}main{padding:.9rem;}.qopts{grid-template-columns:1fr;}.dzgrid{grid-template-columns:1fr;}.act-tabs{padding:.85rem 1rem 0;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <div><h1>📊 Year 7 Mathematics</h1><p>Western Australia Curriculum · Percentage, Rate &amp; Ratio</p></div>
+    <div class="hdr-r">
+      <div class="score">🏆 Score: <span id="totalScore">0</span> / 27</div>
+      <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">Light</button>
+    </div>
+  </div>
+</header>
+<div class="prog"><div class="prog-fill" id="progFill"></div></div>
+
+<div class="topic-tabs">
+  <button class="ttab on" data-t="1" onclick="switchTopic(1)"><span class="tbadge">1</span>Percentage</button>
+  <button class="ttab"    data-t="2" onclick="switchTopic(2)"><span class="tbadge">2</span>Rate</button>
+  <button class="ttab"    data-t="3" onclick="switchTopic(3)"><span class="tbadge">3</span>Ratio</button>
+</div>
+<div class="act-tabs">
+  <button class="atab on" id="btn-tutorial" onclick="switchAct('tutorial')">📖 Tutorial</button>
+  <button class="atab"    id="btn-quiz"     onclick="switchAct('quiz')">❓ Quiz</button>
+  <button class="atab"    id="btn-drag"     onclick="switchAct('drag')">🔀 Drag &amp; Drop</button>
+  <button class="atab"    id="btn-video"    onclick="switchAct('video')">🎬 Video Lesson</button>
+</div>
+
+<main>
+
+<!-- ══ TOPIC 1: PERCENTAGE ══ -->
+<div class="tc on" id="T1">
+  <div class="ap on" id="T1-tutorial">
+    <div class="card">
+      <div class="ctitle c1">📖 Percentage</div>
+      <p class="intro"><strong>Per cent</strong> means "per hundred." A percentage is a fraction with a denominator of 100. We use the symbol <strong>%</strong>. Percentages, decimals and fractions all represent the same value in different forms.</p>
+      <div class="rule">🔑 <strong>Key Formula:</strong> Percentage of a quantity = (Percentage ÷ 100) × Quantity</div>
+      <div class="steps">
+        <div class="step"><div class="snum b1">1</div><div class="sbody"><h4>Converting between forms</h4><p>To convert a percentage to a decimal, divide by 100. To convert a decimal to a percentage, multiply by 100.</p><div class="mbox">45% = 45÷100 = <strong>0.45</strong><br>0.72 = 0.72×100 = <strong>72%</strong><br>3/4 = 0.75 = <strong>75%</strong></div></div></div>
+        <div class="step"><div class="snum b1">2</div><div class="sbody"><h4>Finding a percentage of a quantity</h4><p>Divide the percentage by 100, then multiply by the total quantity.</p><div class="mbox">30% of 200 = (30÷100) × 200 = 0.3 × 200 = <strong>60</strong><br>15% of 80 = 0.15 × 80 = <strong>12</strong></div></div></div>
+        <div class="step"><div class="snum b1">3</div><div class="sbody"><h4>Expressing one quantity as a percentage of another</h4><p>Divide the part by the whole, then multiply by 100.</p><div class="mbox">18 out of 24 = (18÷24) × 100 = 0.75 × 100 = <strong>75%</strong></div></div></div>
+        <div class="step"><div class="snum b1">4</div><div class="sbody"><h4>Percentage increase &amp; decrease</h4><p>Find the change, divide by the original, multiply by 100.</p><div class="mbox">Price: $50 → $40. Decrease = $10<br>% decrease = (10÷50)×100 = <strong>20%</strong><br>Sale price after 20% off $50 = 50×0.8 = <strong>$40</strong></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="ap" id="T1-quiz"><div class="card"><div class="ctitle c1">❓ Quiz — Percentage</div><div id="T1-qbox"></div><div class="qtotal" id="T1-qtotal"></div></div></div>
+  <div class="ap" id="T1-drag">
+    <div class="card"><div class="ctitle c1">🔀 Match the Percentage to its Decimal</div>
+    <p class="dinstr">Drag each percentage card into the correct decimal box.</p>
+    <div class="dsrc" id="T1-dsrc"></div><div class="dzgrid" id="T1-dzones"></div>
+    <button class="btn-check bc1" onclick="checkDrag(1)">Check Answers ✓</button>
+    <button class="btn-reset" onclick="resetDrag(1)">↺ Reset</button>
+    <div class="dres" id="T1-dres"></div></div>
+  </div>
+  <div class="ap" id="T1-video">
+    <div class="card"><div class="ctitle c1">🎬 Animated Lesson — The 100-Square Grid</div>
+    <canvas class="anim-canvas" id="cv1" height="260"></canvas>
+    <div class="anim-cap" id="cap1">Press ▶ Play to start the animated lesson.</div>
+    <div class="arow">
+      <button class="abtn play" id="pb1" onclick="playPause(1)">▶ Play</button>
+      <button class="abtn" onclick="nextScene(1)">⏭ Next</button>
+      <button class="abtn" onclick="restartAnim(1)">↺ Restart</button>
+      <div class="sdots" id="dots1"></div>
+    </div>
+    <div class="srow">
+      <span class="slbl">Speed:</span>
+      <button class="spd" onclick="setSpeed(.25)">0.25×</button>
+      <button class="spd" onclick="setSpeed(.5)">0.5×</button>
+      <button class="spd on" onclick="setSpeed(1)">1×</button>
+      <button class="spd" onclick="setSpeed(1.5)">1.5×</button>
+      <button class="spd" onclick="setSpeed(2)">2×</button>
+    </div>
+    <div class="vquiz" id="vq1"><div class="vqtitle">🎯 Mini Quiz — Test What You Watched</div><div id="vqb1"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TOPIC 2: RATE ══ -->
+<div class="tc" id="T2">
+  <div class="ap on" id="T2-tutorial">
+    <div class="card">
+      <div class="ctitle c2">📖 Rate</div>
+      <p class="intro">A <strong>rate</strong> compares two quantities measured in <em>different</em> units. Rates are written with a slash — e.g. km/h, $/kg, L/min. A <strong>unit rate</strong> is the rate for one unit of the second quantity.</p>
+      <div class="rule p">🔑 <strong>Key Idea:</strong> To find a unit rate, divide the first quantity by the second quantity.</div>
+      <div class="steps">
+        <div class="step"><div class="snum b2">1</div><div class="sbody"><h4>What is a rate?</h4><p>A rate compares two <em>different</em> units. Unlike ratio, rates always have units attached.</p><div class="mbox">80 km/h → kilometres per hour<br>$3.50/kg → dollars per kilogram<br>15 L/min → litres per minute</div></div></div>
+        <div class="step"><div class="snum b2">2</div><div class="sbody"><h4>Finding the unit rate</h4><p>Divide the first quantity by the second to find the rate per 1 unit.</p><div class="mbox">300 km in 3 hours → 300÷3 = <strong>100 km/h</strong><br>$4.50 for 6 apples → $4.50÷6 = <strong>$0.75 per apple</strong></div></div></div>
+        <div class="step"><div class="snum b2">3</div><div class="sbody"><h4>Best buy — comparing rates</h4><p>Find the unit rate (cost per gram or per item) for each option. The lower unit rate is better value.</p><div class="mbox">400g for $3.20 → $3.20÷400 = $0.008/g<br>600g for $4.50 → $4.50÷600 = $0.0075/g<br>∴ 600g is <strong>better value</strong></div></div></div>
+        <div class="step"><div class="snum b2">4</div><div class="sbody"><h4>Speed, distance and time</h4><p>Speed = Distance ÷ Time. Rearrange to find any missing value.</p><div class="mbox">Speed = D÷T &nbsp; Distance = S×T &nbsp; Time = D÷S<br>Example: 240km at 80km/h → Time = 240÷80 = <strong>3 hours</strong></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="ap" id="T2-quiz"><div class="card"><div class="ctitle c2">❓ Quiz — Rate</div><div id="T2-qbox"></div><div class="qtotal" id="T2-qtotal"></div></div></div>
+  <div class="ap" id="T2-drag">
+    <div class="card"><div class="ctitle c2">🔀 Match the Rate to its Unit Rate</div>
+    <p class="dinstr">Drag each rate card into the correct unit rate box.</p>
+    <div class="dsrc" id="T2-dsrc"></div><div class="dzgrid" id="T2-dzones"></div>
+    <button class="btn-check bc2" onclick="checkDrag(2)">Check Answers ✓</button>
+    <button class="btn-reset" onclick="resetDrag(2)">↺ Reset</button>
+    <div class="dres" id="T2-dres"></div></div>
+  </div>
+  <div class="ap" id="T2-video">
+    <div class="card"><div class="ctitle c2">🎬 Animated Lesson — Speed, Distance &amp; Unit Rate</div>
+    <canvas class="anim-canvas" id="cv2" height="260"></canvas>
+    <div class="anim-cap" id="cap2">Press ▶ Play to start the animated lesson.</div>
+    <div class="arow">
+      <button class="abtn play" id="pb2" onclick="playPause(2)">▶ Play</button>
+      <button class="abtn" onclick="nextScene(2)">⏭ Next</button>
+      <button class="abtn" onclick="restartAnim(2)">↺ Restart</button>
+      <div class="sdots" id="dots2"></div>
+    </div>
+    <div class="srow">
+      <span class="slbl">Speed:</span>
+      <button class="spd" onclick="setSpeed(.25)">0.25×</button>
+      <button class="spd" onclick="setSpeed(.5)">0.5×</button>
+      <button class="spd on" onclick="setSpeed(1)">1×</button>
+      <button class="spd" onclick="setSpeed(1.5)">1.5×</button>
+      <button class="spd" onclick="setSpeed(2)">2×</button>
+    </div>
+    <div class="vquiz" id="vq2"><div class="vqtitle">🎯 Mini Quiz — Test What You Watched</div><div id="vqb2"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TOPIC 3: RATIO ══ -->
+<div class="tc" id="T3">
+  <div class="ap on" id="T3-tutorial">
+    <div class="card">
+      <div class="ctitle c3">📖 Ratio</div>
+      <p class="intro">A <strong>ratio</strong> compares two or more quantities of the <em>same kind</em>. Ratios are written with a colon — e.g. 3:5. Unlike rates, ratios have no units. We simplify ratios just like fractions.</p>
+      <div class="rule t">🔑 <strong>Key Idea:</strong> To simplify a ratio, divide both parts by their Highest Common Factor (HCF).</div>
+      <div class="steps">
+        <div class="step"><div class="snum b3">1</div><div class="sbody"><h4>Writing and reading ratios</h4><p>A ratio a:b means "for every a of one thing, there are b of another." Order matters!</p><div class="mbox">8 red : 12 blue → simplified: 8÷4 : 12÷4 = <strong>2:3</strong><br>"2 red for every 3 blue"</div></div></div>
+        <div class="step"><div class="snum b3">2</div><div class="sbody"><h4>Simplifying ratios</h4><p>Find the HCF of both numbers, then divide both by it. Keep going until no common factor remains.</p><div class="mbox">15:25 → HCF=5 → 15÷5 : 25÷5 = <strong>3:5</strong><br>12:18 → HCF=6 → 12÷6 : 18÷6 = <strong>2:3</strong></div></div></div>
+        <div class="step"><div class="snum b3">3</div><div class="sbody"><h4>Equivalent ratios</h4><p>Multiply or divide both parts by the same number to find equivalent ratios.</p><div class="mbox">2:3 = 4:6 = 6:9 = 10:15 (all equivalent)<br>Check: 4÷6 = 2/3 ✓ &nbsp; 6÷9 = 2/3 ✓</div></div></div>
+        <div class="step"><div class="snum b3">4</div><div class="sbody"><h4>Dividing a quantity in a given ratio</h4><p>Add the parts of the ratio to find the total parts. Divide the quantity by total parts to find one part, then multiply.</p><div class="mbox">Divide $56 in ratio 3:4<br>Total parts = 3+4 = 7 &nbsp; One part = $56÷7 = $8<br>3 parts = $24 &nbsp; 4 parts = <strong>$32</strong></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="ap" id="T3-quiz"><div class="card"><div class="ctitle c3">❓ Quiz — Ratio</div><div id="T3-qbox"></div><div class="qtotal" id="T3-qtotal"></div></div></div>
+  <div class="ap" id="T3-drag">
+    <div class="card"><div class="ctitle c3">🔀 Simplify the Ratio</div>
+    <p class="dinstr">Drag each ratio card into its correct simplified form box.</p>
+    <div class="dsrc" id="T3-dsrc"></div><div class="dzgrid" id="T3-dzones"></div>
+    <button class="btn-check bc3" onclick="checkDrag(3)">Check Answers ✓</button>
+    <button class="btn-reset" onclick="resetDrag(3)">↺ Reset</button>
+    <div class="dres" id="T3-dres"></div></div>
+  </div>
+  <div class="ap" id="T3-video">
+    <div class="card"><div class="ctitle c3">🎬 Animated Lesson — Ratio Blocks &amp; Sharing</div>
+    <canvas class="anim-canvas" id="cv3" height="260"></canvas>
+    <div class="anim-cap" id="cap3">Press ▶ Play to start the animated lesson.</div>
+    <div class="arow">
+      <button class="abtn play" id="pb3" onclick="playPause(3)">▶ Play</button>
+      <button class="abtn" onclick="nextScene(3)">⏭ Next</button>
+      <button class="abtn" onclick="restartAnim(3)">↺ Restart</button>
+      <div class="sdots" id="dots3"></div>
+    </div>
+    <div class="srow">
+      <span class="slbl">Speed:</span>
+      <button class="spd" onclick="setSpeed(.25)">0.25×</button>
+      <button class="spd" onclick="setSpeed(.5)">0.5×</button>
+      <button class="spd on" onclick="setSpeed(1)">1×</button>
+      <button class="spd" onclick="setSpeed(1.5)">1.5×</button>
+      <button class="spd" onclick="setSpeed(2)">2×</button>
+    </div>
+    <div class="vquiz" id="vq3"><div class="vqtitle">🎯 Mini Quiz — Test What You Watched</div><div id="vqb3"></div></div>
+    </div>
+  </div>
+</div>
+
+</main>
+<script>
+// ══ DATA ══
+var QUIZ={
+  1:[{q:"What is 25% as a fraction?",o:["1/5","1/4","1/3","2/5"],a:1,x:"25÷100 = 1/4"},
+     {q:"What is 30% of 200?",o:["30","40","60","90"],a:2,x:"0.30 × 200 = 60"},
+     {q:"Convert 0.65 to a percentage:",o:["6.5%","650%","65%","0.065%"],a:2,x:"0.65 × 100 = 65%"},
+     {q:"What is 3/5 as a percentage?",o:["35%","53%","60%","75%"],a:2,x:"3÷5 = 0.6 × 100 = 60%"},
+     {q:"A $50 shirt is 20% off. Sale price?",o:["$10","$30","$40","$45"],a:2,x:"$50 × 0.8 = $40"}],
+  2:[{q:"300 km in 3 hours. Speed = ?",o:["90 km/h","100 km/h","75 km/h","150 km/h"],a:1,x:"300÷3 = 100 km/h"},
+     {q:"4 pens cost $2.80. Cost per pen?",o:["$0.60","$0.65","$0.70","$0.75"],a:2,x:"$2.80÷4 = $0.70"},
+     {q:"Better value: 400g/$3.20 or 600g/$4.50?",o:["400g","600g","Same","Can't tell"],a:1,x:"400g = $0.008/g; 600g = $0.0075/g → 600g is cheaper per gram"},
+     {q:"Tap: 12 L/min. Time to fill 180L?",o:["12 min","15 min","18 min","20 min"],a:1,x:"180÷12 = 15 minutes"},
+     {q:"Convert 90 km/h to m/s:",o:["20 m/s","25 m/s","30 m/s","45 m/s"],a:1,x:"90×1000÷3600 = 25 m/s"}],
+  3:[{q:"Simplify 15:25:",o:["5:8","3:4","3:5","2:4"],a:2,x:"HCF=5 → 15÷5 : 25÷5 = 3:5"},
+     {q:"Divide $56 in ratio 3:4. Smaller share?",o:["$18","$24","$28","$32"],a:1,x:"7 parts → $8 each → 3×$8 = $24"},
+     {q:"Are 4:6 and 6:9 equivalent?",o:["Yes","No","Only sometimes","Never"],a:0,x:"Both simplify to 2:3, so yes"},
+     {q:"35 marbles, ratio red:blue = 3:4. Blue?",o:["15","20","21","25"],a:1,x:"35÷7=5 per part → 4×5=20 blue"},
+     {q:"Boys:girls = 5:3. There are 40 boys. Girls?",o:["18","20","24","25"],a:2,x:"5k=40 → k=8 → girls=3×8=24"}]
+};
+var DRAG={
+  1:{cards:["25%","75%","10%","60%"],zones:[{l:"= 0.25",a:"25%"},{l:"= 0.75",a:"75%"},{l:"= 0.1",a:"10%"},{l:"= 0.6",a:"60%"}]},
+  2:{cards:["300km in 3h","60L in 4min","$2.80 for 4 pens","500m in 25s"],zones:[{l:"100 km/h",a:"300km in 3h"},{l:"15 L/min",a:"60L in 4min"},{l:"$0.70 each",a:"$2.80 for 4 pens"},{l:"20 m/s",a:"500m in 25s"}]},
+  3:{cards:["10:15","8:20","15:25","12:16"],zones:[{l:"= 2:3",a:"10:15"},{l:"= 2:5",a:"8:20"},{l:"= 3:5",a:"15:25"},{l:"= 3:4",a:"12:16"}]}
+};
+var VQUIZ={
+  1:[{q:'"Per cent" means per ___?',o:["Ten","Fifty","Hundred","Thousand"],a:2,x:'Per cent = per hundred. 100 is the base.'},
+     {q:"50% as a decimal = ?",o:["5.0","0.05","0.5","50"],a:2,x:"50÷100 = 0.5"},
+     {q:"10% of 80 = ?",o:["8","10","18","80"],a:0,x:"0.10 × 80 = 8"}],
+  2:[{q:"A rate compares two ___ quantities?",o:["Same","Different","Equal","Whole"],a:1,x:"Rates always compare two different units (e.g. km and hours)."},
+     {q:"120 km in 2 hours = ? km/h",o:["240","60","80","100"],a:1,x:"120÷2 = 60 km/h"},
+     {q:"Unit rate means rate per how many?",o:["10","100","1","50"],a:2,x:"Unit rate is always per 1 unit."}],
+  3:[{q:"To simplify 6:9, divide both by ___",o:["2","3","6","9"],a:1,x:"HCF of 6 and 9 is 3 → 2:3"},
+     {q:"2:3 means for every 2 there are ___",o:["2","5","3","1"],a:2,x:"The second number in the ratio is 3."},
+     {q:"Simplify 15:25",o:["5:10","1:2","3:5","5:8"],a:2,x:"HCF=5 → 15÷5 : 25÷5 = 3:5"}]
+};
+
+// ══ STATE ══
+var curT=1,curA='tutorial';
+var scores={quiz:{1:0,2:0,3:0},drag:{1:0,2:0,3:0}};
+var qAns={1:{},2:{},3:{}},placed={1:{},2:{},3:{}};
+var qBuilt={1:false,2:false,3:false},dBuilt={1:false,2:false,3:false};
+
+// ══ NAV ══
+function switchTopic(t){
+  curT=t;
+  document.querySelectorAll('.ttab').forEach(function(b){b.classList.remove('on');});
+  document.querySelector('.ttab[data-t="'+t+'"]').classList.add('on');
+  document.querySelectorAll('.tc').forEach(function(c){c.classList.remove('on');});
+  document.getElementById('T'+t).classList.add('on');
+  switchAct('tutorial');
+}
+function switchAct(a){
+  curA=a;
+  ['tutorial','quiz','drag','video'].forEach(function(x){
+    document.getElementById('btn-'+x).classList.toggle('on',x===a);
+    var el=document.getElementById('T'+curT+'-'+x);
+    if(el) el.classList.toggle('on',x===a);
+  });
+  if(a==='quiz') buildQuiz(curT);
+  if(a==='drag') buildDrag(curT);
+  if(a==='video') initAnim(curT);
+}
+
+// ══ QUIZ ══
+function buildQuiz(t){
+  if(qBuilt[t])return;qBuilt[t]=true;
+  document.getElementById('T'+t+'-qbox').innerHTML=QUIZ[t].map(function(q,i){
+    return '<div class="qq"><div class="qtext">Q'+(i+1)+'. '+q.q+'</div><div class="qopts">'+
+      q.o.map(function(o,j){return '<button class="qopt" id="Q'+t+'_'+i+'_'+j+'" onclick="doAns('+t+','+i+','+j+')">'+'ABCD'[j]+'. '+o+'</button>';}).join('')+
+      '</div><div class="qfb" id="QF'+t+'_'+i+'"></div></div>';}).join('');
+}
+function doAns(t,i,j){
+  if(qAns[t][i])return;qAns[t][i]=true;
+  var q=QUIZ[t][i];
+  [0,1,2,3].forEach(function(k){var b=document.getElementById('Q'+t+'_'+i+'_'+k);b.disabled=true;if(k===q.a)b.classList.add('ok');if(k===j&&j!==q.a)b.classList.add('no');});
+  var fb=document.getElementById('QF'+t+'_'+i);
+  if(j===q.a){scores.quiz[t]++;fb.textContent='✅ Correct! '+q.x;fb.className='qfb ok';}
+  else{fb.textContent='❌ '+q.x;fb.className='qfb no';}
+  if(Object.keys(qAns[t]).length===QUIZ[t].length){
+    var s=scores.quiz[t],n=QUIZ[t].length;
+    document.getElementById('T'+t+'-qtotal').textContent='Score: '+s+'/'+n+' '+(s===n?'🎉 Perfect!':s>=3?'👍 Good work!':'💪 Keep practising!');
+    updateProg();
+  }
+}
+
+// ══ DRAG ══
+var dragV=null;
+function buildDrag(t){if(dBuilt[t])return;dBuilt[t]=true;renderDrag(t);}
+function renderDrag(t){
+  var d=DRAG[t],sh=[...d.cards].sort(function(){return Math.random()-.5;});
+  document.getElementById('T'+t+'-dsrc').innerHTML=sh.map(function(c){
+    return '<div class="dcard" draggable="true" id="DC'+t+'_'+esc(c)+'" data-v="'+c+'" ondragstart="dstart(event)" ondragend="dend(event)">'+c+'</div>';}).join('');
+  document.getElementById('T'+t+'-dzones').innerHTML=d.zones.map(function(z,i){
+    return '<div class="dzone" id="DZ'+t+'_'+i+'" data-a="'+z.a+'"'+
+      ' ondragover="event.preventDefault();this.classList.add(\'over\')"'+
+      ' ondragleave="this.classList.remove(\'over\')"'+
+      ' ondrop="ddrop(event,'+t+','+i+')">'+
+      '<div class="dlabel">'+z.l+'</div><div class="dplaced" id="DP'+t+'_'+i+'"></div></div>';}).join('');
+  placed[t]={};
+}
+function esc(s){return s.replace(/[^a-zA-Z0-9]/g,'_');}
+function dstart(e){dragV=e.target.dataset.v;e.target.classList.add('dragging');e.dataTransfer.setData('text/plain',dragV);}
+function dend(e){e.target.classList.remove('dragging');}
+function ddrop(e,t,i){
+  e.preventDefault();e.currentTarget.classList.remove('over');
+  var card=e.dataTransfer.getData('text/plain');
+  if(placed[t][i]!=null){
+    var pr=placed[t][i],src=document.getElementById('T'+t+'-dsrc');
+    if(!document.getElementById('DC'+t+'_'+esc(pr))){
+      var el=document.createElement('div');el.className='dcard';el.draggable=true;
+      el.id='DC'+t+'_'+esc(pr);el.dataset.v=pr;el.textContent=pr;
+      el.ondragstart=dstart;el.ondragend=dend;src.appendChild(el);
+    }
+  }
+  var ce=document.getElementById('DC'+t+'_'+esc(card));if(ce)ce.remove();
+  placed[t][i]=card;document.getElementById('DP'+t+'_'+i).textContent=card;
+  document.getElementById('DZ'+t+'_'+i).classList.remove('ok','no');
+}
+function checkDrag(t){
+  var d=DRAG[t],c=0;
+  d.zones.forEach(function(z,i){
+    var z2=document.getElementById('DZ'+t+'_'+i);z2.classList.remove('ok','no');
+    if(placed[t][i]===z.a){z2.classList.add('ok');c++;}else z2.classList.add('no');
+  });
+  scores.drag[t]=c;
+  document.getElementById('T'+t+'-dres').innerHTML=c===d.zones.length
+    ?'<span style="color:var(--ok)">🎉 All '+c+' correct!</span>'
+    :'<span style="color:var(--warn)">'+c+'/'+d.zones.length+' correct — red boxes need fixing.</span>';
+  updateProg();
+}
+function resetDrag(t){
+  scores.drag[t]=0;dBuilt[t]=false;
+  ['dsrc','dzones'].forEach(function(id){document.getElementById('T'+t+'-'+id).innerHTML='';});
+  document.getElementById('T'+t+'-dres').innerHTML='';buildDrag(t);updateProg();
+}
+
+// ══ PROGRESS ══
+function updateProg(){
+  var tot=0;for(var t=1;t<=3;t++)tot+=scores.quiz[t]+scores.drag[t];
+  document.getElementById('totalScore').textContent=tot;
+  document.getElementById('progFill').style.width=Math.min(Math.round(tot/27*100),100)+'%';
+}
+
+// ══ THEME ══
+function toggleTheme(){
+  var l=document.body.classList.toggle('light');
+  document.getElementById('themeBtn').textContent=l?'Dark':'Light';
+}
+
+// ══ ANIMATION ENGINE ══
+var animSpeed=1;
+var AS={1:{sc:0,p:0,playing:false,raf:null,done:false,lt:null},2:{sc:0,p:0,playing:false,raf:null,done:false,lt:null},3:{sc:0,p:0,playing:false,raf:null,done:false,lt:null}};
+var vqAns={1:{},2:{},3:{}},vqSc={1:0,2:0,3:0};
+var cvW={1:0,2:0,3:0};
+
+function setSpeed(s){
+  animSpeed=s;
+  document.querySelectorAll('.spd').forEach(function(b){b.classList.toggle('on',parseFloat(b.textContent)===s);});
+}
+function getCanvas(t){return document.getElementById('cv'+t);}
+function getCW(t){var c=getCanvas(t);return c?Math.floor(c.getBoundingClientRect().width)||860:860;}
+function getCtx(t){
+  var c=getCanvas(t);if(!c)return null;
+  var w=getCW(t);if(cvW[t]!==w){c.width=w;c.height=260;cvW[t]=w;}
+  return c.getContext('2d');
+}
+var CH=260;
+function gv(n){return getComputedStyle(document.body).getPropertyValue(n).trim();}
+function TC(){return gv('--txt');}function MC(){return gv('--muted');}
+function SurfC(){return gv('--surf');}function S2C(){return gv('--surf2');}
+function BDC(){return gv('--bdr');}
+function T1(){return gv('--t1');}function T2(){return gv('--t2');}function T3(){return gv('--t3');}
+function OKC(){return gv('--ok');}function ERC(){return gv('--err');}
+function eio(t){return t<.5?2*t*t:-1+(4-2*t)*t;}
+function eout(t){return 1-Math.pow(Math.max(0,1-t),3);}
+function lerp(a,b,t){return a+(b-a)*t;}
+function rr(ctx,x,y,w,h,r){
+  r=Math.min(r,w/2,h/2);ctx.beginPath();
+  ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.arcTo(x+w,y,x+w,y+r,r);
+  ctx.lineTo(x+w,y+h-r);ctx.arcTo(x+w,y+h,x+w-r,y+h,r);
+  ctx.lineTo(x+r,y+h);ctx.arcTo(x,y+h,x,y+h-r,r);
+  ctx.lineTo(x,y+r);ctx.arcTo(x,y,x+r,y,r);ctx.closePath();
+}
+function clr(ctx,W){ctx.fillStyle=SurfC();ctx.fillRect(0,0,W,CH);}
+
+// ══ SCENES ══
+var SCENES={
+  1:[ // PERCENTAGE
+    {dur:2800,cap:"<b>Per cent</b> means 'per hundred.' This 10×10 grid has exactly 100 squares — perfect for showing percentages!",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var cols=10,sz=Math.min(Math.floor((W-100)/cols),22),pad=Math.floor((W-(cols*sz+(cols-1)*2))/2);
+       var gy=20,gx=pad;
+       ctx.globalAlpha=eout(Math.min(t*3,1));
+       for(var r=0;r<10;r++){for(var c=0;c<10;c++){
+         var x=gx+c*(sz+2),y=gy+r*(sz+2);
+         ctx.fillStyle=BDC();rr(ctx,x,y,sz,sz,3);ctx.fill();
+       }}
+       ctx.globalAlpha=1;
+       ctx.fillStyle=TC();ctx.font='bold 14px Nunito,sans-serif';ctx.textAlign='center';
+       ctx.fillText('100 squares = 100%',W/2,CH-20);
+     }},
+    {dur:3200,cap:"<b>25%</b> = 25 out of 100 squares. Watch the first 25 squares fill in!",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var cols=10,sz=Math.min(Math.floor((W-100)/cols),22),pad=Math.floor((W-(cols*sz+(cols-1)*2))/2);
+       var gy=20,gx=pad,fill=Math.round(eio(t)*25);
+       for(var r=0;r<10;r++){for(var c=0;c<10;c++){
+         var idx=r*10+c,x=gx+c*(sz+2),y=gy+r*(sz+2);
+         ctx.fillStyle=idx<fill?T1():BDC();rr(ctx,x,y,sz,sz,3);ctx.fill();
+       }}
+       ctx.fillStyle=T1();ctx.font='bold 22px Space Mono,monospace';ctx.textAlign='center';
+       ctx.fillText(fill+'%',W/2,CH-30);
+       ctx.fillStyle=TC();ctx.font='13px Nunito,sans-serif';
+       ctx.fillText('25% = 1/4 = 0.25',W/2,CH-12);
+     }},
+    {dur:3200,cap:"Now <b>60%</b> fills 60 out of 100 squares. 60% = 3/5 = 0.6.",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var cols=10,sz=Math.min(Math.floor((W-100)/cols),22),pad=Math.floor((W-(cols*sz+(cols-1)*2))/2);
+       var gy=20,gx=pad,fill=Math.round(eio(t)*60);
+       for(var r=0;r<10;r++){for(var c=0;c<10;c++){
+         var idx=r*10+c,x=gx+c*(sz+2),y=gy+r*(sz+2);
+         ctx.fillStyle=idx<fill?T2():BDC();rr(ctx,x,y,sz,sz,3);ctx.fill();
+       }}
+       ctx.fillStyle=T2();ctx.font='bold 22px Space Mono,monospace';ctx.textAlign='center';
+       ctx.fillText(fill+'%',W/2,CH-30);
+       ctx.fillStyle=TC();ctx.font='13px Nunito,sans-serif';
+       ctx.fillText('60% = 3/5 = 0.6',W/2,CH-12);
+     }},
+    {dur:3500,cap:"Finding <b>30% of 200</b>: first divide 200 into 100 equal parts, then take 30 of them.",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var bx=60,bw=W-120,bh=44,by=80;
+       // total bar
+       ctx.fillStyle=BDC();rr(ctx,bx,by,bw,bh,8);ctx.fill();
+       // filled portion (30%)
+       var fillW=bw*0.3*eio(t);
+       if(fillW>0){ctx.fillStyle=T1();rr(ctx,bx,by,Math.max(fillW,1),bh,8);ctx.fill();}
+       // label
+       ctx.fillStyle=TC();ctx.font='bold 14px Nunito,sans-serif';ctx.textAlign='center';
+       ctx.fillText('30% of 200',W/2,by-12);
+       var pct=Math.round(eio(t)*30);
+       ctx.fillStyle=T1();ctx.font='bold 20px Space Mono,monospace';
+       ctx.fillText(Math.round(pct*200/100)+' / 200',W/2,by+bh+30);
+       // steps
+       var steps=[
+         {y:by+bh+60,txt:'Step 1: 30 ÷ 100 = 0.30',s:.35},
+         {y:by+bh+82,txt:'Step 2: 0.30 × 200 = 60  ✓',s:.65}
+       ];
+       steps.forEach(function(s){
+         if(t<s.s)return;
+         ctx.globalAlpha=eout((t-s.s)*4);ctx.fillStyle=TC();ctx.font='13px Nunito,sans-serif';
+         ctx.textAlign='center';ctx.fillText(s.txt,W/2,s.y);ctx.globalAlpha=1;
+       });
+     }},
+    {dur:3000,cap:"The <b>conversion triangle</b>: ÷100 to go from % to decimal, ×100 to go back. ÷ denominator for fraction to decimal.",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var cx=W/2,cy=CH/2+10;
+       // triangle nodes
+       var nodes=[{x:cx,y:cy-72,lbl:'%',col:T1()},{x:cx-80,y:cy+40,lbl:'Fraction',col:T2()},{x:cx+80,y:cy+40,lbl:'Decimal',col:T3()}];
+       var arrows=[
+         {from:0,to:2,lbl:'÷100',side:'right'},{from:2,to:0,lbl:'×100',side:'right'},
+         {from:1,to:2,lbl:'÷ den',side:'bottom'},{from:2,to:1,lbl:'num/den',side:'bottom'},
+         {from:0,to:1,lbl:'÷100',side:'left'},{from:1,to:0,lbl:'×100',side:'left'},
+       ];
+       ctx.globalAlpha=eout(t);
+       // lines
+       ctx.strokeStyle=BDC();ctx.lineWidth=1.5;
+       [[0,1],[1,2],[2,0]].forEach(function(pair){
+         ctx.beginPath();ctx.moveTo(nodes[pair[0]].x,nodes[pair[0]].y);ctx.lineTo(nodes[pair[1]].x,nodes[pair[1]].y);ctx.stroke();
+       });
+       // nodes
+       nodes.forEach(function(n){
+         ctx.fillStyle=n.col+'22';ctx.strokeStyle=n.col;ctx.lineWidth=2;
+         rr(ctx,n.x-42,n.y-20,84,40,10);ctx.fill();ctx.stroke();
+         ctx.fillStyle=n.col;ctx.font='bold 16px Nunito,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+         ctx.fillText(n.lbl,n.x,n.y);ctx.textBaseline='alphabetic';
+       });
+       // labels
+       ctx.fillStyle=MC();ctx.font='11px Nunito,sans-serif';ctx.textAlign='center';
+       ctx.fillText('÷100',cx+50,cy-22);ctx.fillText('×100',cx-50,cy-22);
+       ctx.fillText('÷100  /  ×100',cx,cy+62);
+       ctx.globalAlpha=1;
+     }},
+  ],
+  2:[ // RATE
+    {dur:2800,cap:"A <b>rate</b> compares two <em>different</em> units. These are all examples of rates we use every day.",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var examples=[{icon:'🚗',rate:'100 km/h',lbl:'speed'},
+                     {icon:'💧',rate:'15 L/min',lbl:'flow'},
+                     {icon:'💰',rate:'$8.50/kg',lbl:'price'},
+                     {icon:'🌡️',rate:'2°C/hour',lbl:'temperature'}];
+       var cols=2,bw=Math.floor((W-60)/2),bh=70,gx=30,gy=30;
+       examples.forEach(function(ex,i){
+         var col=i%2,row=Math.floor(i/2);
+         var x=gx+col*(bw+10),y=gy+row*(bh+10);
+         var p=eout(Math.max(0,t*2.5-i*.4));
+         ctx.globalAlpha=Math.min(p,1);
+         ctx.fillStyle=S2C();ctx.strokeStyle=BDC();ctx.lineWidth=1.5;rr(ctx,x,y,bw,bh,10);ctx.fill();ctx.stroke();
+         ctx.font='22px serif';ctx.textAlign='center';ctx.fillText(ex.icon,x+30,y+40);
+         ctx.fillStyle=TC();ctx.font='bold 14px Space Mono,monospace';ctx.textAlign='left';
+         ctx.fillText(ex.rate,x+52,y+32);
+         ctx.fillStyle=MC();ctx.font='11px Nunito,sans-serif';ctx.fillText(ex.lbl,x+52,y+52);
+         ctx.globalAlpha=1;
+       });
+       ctx.fillStyle=TC();ctx.font='bold 13px Nunito,sans-serif';ctx.textAlign='center';
+       ctx.globalAlpha=eout(t);ctx.fillText('Rates always have TWO different units',W/2,CH-14);ctx.globalAlpha=1;
+     }},
+    {dur:3500,cap:"<b>Unit rate</b> = rate per 1. Divide the first quantity by the second. Example: 300 km in 3 hours.",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var cx=W/2;
+       ctx.fillStyle=TC();ctx.font='bold 18px Space Mono,monospace';ctx.textAlign='center';
+       ctx.globalAlpha=eout(Math.min(t*2,1));ctx.fillText('300 km in 3 hours = ?',cx,50);ctx.globalAlpha=1;
+       // bar for 3 hours divided into 3
+       var bx=60,bw=W-120,bh=44,by=80,segW=bw/3;
+       var cols2=[T1(),T2(),T3()];
+       for(var i=0;i<3;i++){
+         var p=eout(Math.max(0,(t-.2)*2-i*.25));
+         ctx.globalAlpha=Math.min(p,1);
+         ctx.fillStyle=cols2[i]+'88';
+         ctx.fillRect(bx+i*segW+1,by,segW-2,bh);
+         ctx.strokeStyle=cols2[i];ctx.lineWidth=2;ctx.strokeRect(bx+i*segW+1,by,segW-2,bh);
+         ctx.fillStyle=TC();ctx.font='bold 13px Nunito,sans-serif';ctx.textAlign='center';
+         ctx.fillText('100 km',bx+i*segW+segW/2,by+bh/2+6);
+         ctx.fillStyle=MC();ctx.font='11px Nunito,sans-serif';
+         ctx.fillText('Hour '+(i+1),bx+i*segW+segW/2,by+bh+18);
+         ctx.globalAlpha=1;
+       }
+       if(t>.7){
+         ctx.globalAlpha=eout((t-.7)*3);
+         ctx.fillStyle=T1();ctx.font='bold 22px Space Mono,monospace';ctx.textAlign='center';
+         ctx.fillText('300 ÷ 3 = 100 km/h ✓',cx,200);
+         ctx.fillStyle=MC();ctx.font='13px Nunito,sans-serif';
+         ctx.fillText('Each hour the car travels 100 km',cx,222);
+         ctx.globalAlpha=1;
+       }
+     }},
+    {dur:3500,cap:"<b>Best buy</b>: compare unit rates. Find the cost per gram for each option — the lower cost per gram wins!",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var cx=W/2;
+       ctx.fillStyle=TC();ctx.font='bold 15px Nunito,sans-serif';ctx.textAlign='center';
+       ctx.globalAlpha=eout(Math.min(t*2,1));ctx.fillText('Which is better value?',cx,36);ctx.globalAlpha=1;
+       var options=[
+         {lbl:'Option A',detail:'400g for $3.20',unit:'$0.008 per gram',col:T1(),x:W*.25,better:false},
+         {lbl:'Option B',detail:'600g for $4.50',unit:'$0.0075 per gram',col:T2(),x:W*.75,better:true}
+       ];
+       options.forEach(function(op,i){
+         var p=eout(Math.max(0,t*2.5-i*.3));
+         ctx.globalAlpha=Math.min(p,1);
+         ctx.fillStyle=S2C();ctx.strokeStyle=op.col;ctx.lineWidth=2;
+         rr(ctx,op.x-90,55,180,100,12);ctx.fill();ctx.stroke();
+         ctx.fillStyle=op.col;ctx.font='bold 14px Nunito,sans-serif';ctx.textAlign='center';ctx.fillText(op.lbl,op.x,82);
+         ctx.fillStyle=TC();ctx.font='12px Space Mono,monospace';ctx.fillText(op.detail,op.x,102);
+         ctx.fillStyle=MC();ctx.font='12px Nunito,sans-serif';ctx.fillText(op.unit,op.x,124);
+         ctx.globalAlpha=1;
+       });
+       if(t>.65){
+         ctx.globalAlpha=eout((t-.65)*3);
+         ctx.fillStyle=T2();ctx.font='bold 18px Nunito,sans-serif';ctx.textAlign='center';
+         ctx.fillText('✓ Option B is better value!',cx,178);
+         ctx.fillStyle=MC();ctx.font='13px Nunito,sans-serif';
+         ctx.fillText('$0.0075/g < $0.008/g',cx,200);
+         ctx.globalAlpha=1;
+       }
+       // SDT triangle
+       if(t>.8){
+         ctx.globalAlpha=eout((t-.8)*4);
+         ctx.fillStyle=TC();ctx.font='bold 12px Nunito,sans-serif';ctx.textAlign='center';
+         ctx.fillText('Speed = D÷T   Distance = S×T   Time = D÷S',cx,232);
+         ctx.globalAlpha=1;
+       }
+     }},
+    {dur:3000,cap:"<b>Speed–Distance–Time triangle</b>: cover the quantity you want to find. The other two show you what to do.",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var cx=W/2,cy=CH/2+10;
+       // big triangle
+       ctx.globalAlpha=eout(t);
+       ctx.strokeStyle=T2();ctx.lineWidth=2;ctx.fillStyle=T2()+'11';
+       ctx.beginPath();ctx.moveTo(cx,cy-90);ctx.lineTo(cx-80,cy+50);ctx.lineTo(cx+80,cy+50);ctx.closePath();
+       ctx.fill();ctx.stroke();
+       // horizontal divider
+       ctx.strokeStyle=T2();ctx.lineWidth=2;
+       ctx.beginPath();ctx.moveTo(cx-80,cy+10);ctx.lineTo(cx+80,cy+10);ctx.stroke();
+       // vertical divider lower half
+       ctx.beginPath();ctx.moveTo(cx,cy+10);ctx.lineTo(cx,cy+50);ctx.stroke();
+       // labels
+       ctx.fillStyle=TC();ctx.font='bold 20px Space Mono,monospace';ctx.textAlign='center';ctx.textBaseline='middle';
+       ctx.fillText('D',cx,cy-30);
+       ctx.fillText('S',cx-40,cy+32);
+       ctx.fillText('T',cx+40,cy+32);
+       ctx.textBaseline='alphabetic';
+       // formulas
+       ctx.fillStyle=MC();ctx.font='13px Nunito,sans-serif';ctx.textAlign='center';
+       ctx.fillText('Distance = Speed × Time',cx,cy+82);
+       ctx.fillText('Speed = D÷T       Time = D÷S',cx,cy+100);
+       // example
+       if(t>.5){
+         ctx.globalAlpha=eout((t-.5)*3);
+         ctx.fillStyle=T2();ctx.font='bold 14px Space Mono,monospace';ctx.textAlign='center';
+         ctx.fillText('Example: 240km at 80km/h → T = 240÷80 = 3h',cx,cy+125);
+         ctx.globalAlpha=1;
+       }
+       ctx.globalAlpha=1;
+     }},
+  ],
+  3:[ // RATIO
+    {dur:3000,cap:"A <b>ratio</b> compares parts to parts of the <em>same</em> kind. These coloured blocks show a 2:3 ratio — 2 orange for every 3 purple.",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var bw=Math.floor((W-80)/5),bh=70,gy=CH/2-35,gx=40;
+       var colors=[T1(),T1(),T2(),T2(),T2()];
+       var labels=['','','','',''];
+       colors.forEach(function(col,i){
+         var p=eout(Math.max(0,t*2-i*.3));
+         ctx.globalAlpha=Math.min(p,1);
+         ctx.fillStyle=col;rr(ctx,gx+i*(bw+4),gy,bw,bh,8);ctx.fill();
+         ctx.globalAlpha=1;
+       });
+       ctx.fillStyle=TC();ctx.font='bold 14px Nunito,sans-serif';ctx.textAlign='center';
+       ctx.globalAlpha=eout(t);
+       ctx.fillText('Ratio = 2 : 3',W/2,gy-18);
+       ctx.fillStyle=T1();ctx.font='bold 13px Nunito,sans-serif';
+       ctx.fillText('2 orange',gx+bw,gy+bh+22);
+       ctx.fillStyle=T2();
+       ctx.fillText('3 purple',gx+3*bw+12,gy+bh+22);
+       ctx.fillStyle=MC();ctx.font='13px Nunito,sans-serif';ctx.textAlign='center';
+       ctx.fillText('"For every 2 orange, there are 3 purple"',W/2,gy+bh+50);
+       ctx.globalAlpha=1;
+     }},
+    {dur:3500,cap:"<b>Simplifying a ratio</b>: divide both numbers by their HCF. Example: 12:18 → HCF=6 → 2:3.",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var cx=W/2;
+       // before
+       ctx.globalAlpha=eout(Math.min(t*2,1));
+       ctx.fillStyle=TC();ctx.font='bold 18px Space Mono,monospace';ctx.textAlign='center';
+       ctx.fillText('12 : 18',cx,52);
+       ctx.fillStyle=MC();ctx.font='13px Nunito,sans-serif';ctx.fillText('(not simplified)',cx,72);
+       ctx.globalAlpha=1;
+       // steps
+       var steps=[
+         {y:108,txt:'Find HCF of 12 and 18',sub:'Factors of 12: 1,2,3,4,6,12  |  Factors of 18: 1,2,3,6,9,18',col:TC(),s:.22},
+         {y:148,txt:'HCF = 6',sub:'The largest common factor',col:T3(),s:.4},
+         {y:190,txt:'12÷6 : 18÷6 = 2 : 3  ✓',sub:'Divide both parts by 6',col:OKC(),s:.6},
+       ];
+       steps.forEach(function(s){
+         if(t<s.s)return;
+         ctx.globalAlpha=eout(Math.min((t-s.s)*3,1));
+         ctx.fillStyle=s.col;ctx.font='bold 15px Nunito,sans-serif';ctx.textAlign='center';ctx.fillText(s.txt,cx,s.y);
+         ctx.fillStyle=MC();ctx.font='12px Nunito,sans-serif';ctx.fillText(s.sub,cx,s.y+18);ctx.globalAlpha=1;
+       });
+     }},
+    {dur:3800,cap:"<b>Dividing $60 in ratio 2:3</b>. Total parts = 5. Each part = $12. Then multiply each share.",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var cx=W/2;
+       ctx.fillStyle=TC();ctx.font='bold 16px Nunito,sans-serif';ctx.textAlign='center';
+       ctx.globalAlpha=eout(Math.min(t*2,1));ctx.fillText('Divide $60 in ratio 2:3',cx,38);ctx.globalAlpha=1;
+       // 5 equal blocks
+       var nBlocks=5,bw=Math.floor((W-80)/nBlocks),bh=50,gy=62,gx=40;
+       var colA=T1(),colB=T2();
+       for(var i=0;i<nBlocks;i++){
+         var p=eout(Math.max(0,t*2.5-i*.25));
+         ctx.globalAlpha=Math.min(p,1);
+         ctx.fillStyle=i<2?colA:colB;
+         rr(ctx,gx+i*(bw+2),gy,bw,bh,6);ctx.fill();
+         ctx.fillStyle='rgba(0,0,0,.35)';ctx.font='bold 14px Space Mono,monospace';ctx.textAlign='center';
+         ctx.fillText('$12',gx+i*(bw+2)+bw/2,gy+bh/2+6);
+         ctx.globalAlpha=1;
+       }
+       if(t>.45){
+         ctx.globalAlpha=eout((t-.45)*2.5);
+         ctx.fillStyle=MC();ctx.font='12px Nunito,sans-serif';ctx.textAlign='center';
+         ctx.fillText('Total parts = 2+3 = 5',cx,gy+bh+22);
+         ctx.fillText('Each part = $60÷5 = $12',cx,gy+bh+40);
+         ctx.globalAlpha=1;
+       }
+       if(t>.7){
+         ctx.globalAlpha=eout((t-.7)*3);
+         ctx.fillStyle=colA;ctx.font='bold 16px Space Mono,monospace';ctx.textAlign='center';
+         ctx.fillText('2 parts = $24',cx-90,gy+bh+72);
+         ctx.fillStyle=colB;
+         ctx.fillText('3 parts = $36',cx+90,gy+bh+72);
+         ctx.fillStyle=OKC();ctx.font='bold 14px Nunito,sans-serif';
+         ctx.fillText('$24 + $36 = $60 ✓',cx,gy+bh+100);
+         ctx.globalAlpha=1;
+       }
+     }},
+    {dur:3000,cap:"<b>Equivalent ratios</b> are the same ratio in different form — just like equivalent fractions. Multiply or divide both parts by the same number.",
+     draw:function(ctx,t,W){
+       clr(ctx,W);
+       var cx=W/2;
+       ctx.globalAlpha=eout(t);
+       ctx.fillStyle=TC();ctx.font='bold 15px Nunito,sans-serif';ctx.textAlign='center';
+       ctx.fillText('Equivalent Ratios',cx,32);
+       ctx.globalAlpha=1;
+       var ratios=[{r:'1 : 2',x:1,col:T3()},{r:'2 : 4',x:2,col:T3()},{r:'3 : 6',x:3,col:T3()},{r:'5 : 10',x:5,col:T3()}];
+       var bw=Math.floor((W-80)/4),gy=56,gx=40;
+       ratios.forEach(function(r,i){
+         var p=eout(Math.max(0,t*2-i*.3));
+         ctx.globalAlpha=Math.min(p,1);
+         ctx.fillStyle=r.col+'22';ctx.strokeStyle=r.col;ctx.lineWidth=1.5;
+         rr(ctx,gx+i*(bw+6),gy,bw,50,8);ctx.fill();ctx.stroke();
+         ctx.fillStyle=r.col;ctx.font='bold 15px Space Mono,monospace';ctx.textAlign='center';ctx.textBaseline='middle';
+         ctx.fillText(r.r,gx+i*(bw+6)+bw/2,gy+25);ctx.textBaseline='alphabetic';
+         ctx.fillStyle=MC();ctx.font='11px Nunito,sans-serif';
+         ctx.fillText('×'+r.x,gx+i*(bw+6)+bw/2,gy+66);
+         ctx.globalAlpha=1;
+       });
+       if(t>.55){
+         ctx.globalAlpha=eout((t-.55)*3);
+         ctx.fillStyle=T3();ctx.font='bold 14px Nunito,sans-serif';ctx.textAlign='center';
+         ctx.fillText('All equivalent — all simplify to 1:2',cx,gy+88);
+         ctx.fillStyle=MC();ctx.font='13px Nunito,sans-serif';
+         ctx.fillText('Check: divide both parts by the same number',cx,gy+108);
+         ctx.globalAlpha=1;
+       }
+       // dot product check
+       if(t>.8){
+         ctx.globalAlpha=eout((t-.8)*4);
+         ctx.fillStyle=TC();ctx.font='13px Nunito,sans-serif';ctx.textAlign='center';
+         ctx.fillText('Cross-multiply to check: 2×6 = 3×4 = 12 ✓',cx,200);
+         ctx.globalAlpha=1;
+       }
+     }},
+  ]
+};
+
+// ══ ANIM CONTROL ══
+function initAnim(t){
+  setTimeout(function(){renderFrame(t);updateDots(t);setCaption(t,SCENES[t][0].cap);},30);
+}
+function playPause(t){
+  var s=AS[t];
+  if(s.done){restartAnim(t);return;}
+  if(s.playing){
+    s.playing=false;if(s.raf){cancelAnimationFrame(s.raf);s.raf=null;}
+    document.getElementById('pb'+t).textContent='▶ Play';
+  } else {
+    s.playing=true;s.lt=null;document.getElementById('pb'+t).textContent='⏸ Pause';
+    s.raf=requestAnimationFrame(function(ts){animLoop(t,ts);});
+  }
+}
+function nextScene(t){
+  var s=AS[t];s.playing=false;if(s.raf){cancelAnimationFrame(s.raf);s.raf=null;}
+  document.getElementById('pb'+t).textContent='▶ Play';
+  if(s.sc<SCENES[t].length-1){s.sc++;s.p=0;s.lt=null;setCaption(t,SCENES[t][s.sc].cap);updateDots(t);renderFrame(t);}
+  else finishAnim(t);
+}
+function restartAnim(t){
+  var s=AS[t];s.playing=false;if(s.raf){cancelAnimationFrame(s.raf);s.raf=null;}
+  s.sc=0;s.p=0;s.done=false;s.lt=null;
+  vqAns[t]={};vqSc[t]=0;
+  document.getElementById('pb'+t).textContent='▶ Play';
+  document.getElementById('vq'+t).classList.remove('show');
+  document.getElementById('vqb'+t).innerHTML='';
+  updateDots(t);renderFrame(t);setCaption(t,SCENES[t][0].cap);
+}
+function animLoop(t,ts){
+  var s=AS[t];if(!s.playing)return;
+  if(s.lt===null)s.lt=ts;
+  var dt=ts-s.lt;s.lt=ts;
+  s.p+=dt/SCENES[t][s.sc].dur*animSpeed;
+  if(s.p>=1){
+    s.p=1;renderFrame(t);s.playing=false;s.raf=null;
+    document.getElementById('pb'+t).textContent='▶ Play';
+    setTimeout(function(){
+      if(s.sc<SCENES[t].length-1){
+        s.sc++;s.p=0;s.lt=null;
+        setCaption(t,SCENES[t][s.sc].cap);updateDots(t);renderFrame(t);
+        s.playing=true;document.getElementById('pb'+t).textContent='⏸ Pause';
+        s.raf=requestAnimationFrame(function(ts2){animLoop(t,ts2);});
+      } else finishAnim(t);
+    },350);
+  } else {
+    renderFrame(t);
+    s.raf=requestAnimationFrame(function(ts2){animLoop(t,ts2);});
+  }
+}
+function renderFrame(t){
+  var ctx=getCtx(t);if(!ctx)return;
+  var s=AS[t];SCENES[t][s.sc].draw(ctx,s.p,getCW(t));
+}
+function setCaption(t,html){var el=document.getElementById('cap'+t);if(el)el.innerHTML=html;}
+function updateDots(t){
+  var el=document.getElementById('dots'+t);if(!el)return;
+  var cur=AS[t].sc,n=SCENES[t].length;
+  el.innerHTML=Array.from({length:n},function(_,i){return '<div class="sdot '+(i<cur?'done':i===cur?'cur':'')+'"></div>';}).join('');
+}
+function finishAnim(t){
+  AS[t].done=true;AS[t].playing=false;AS[t].raf=null;
+  document.getElementById('pb'+t).textContent='↺ Restart';
+  setCaption(t,'🎉 Animation complete! Test your knowledge with the mini-quiz below.');
+  buildVQuiz(t);
+  var vq=document.getElementById('vq'+t);vq.classList.add('show');
+  vq.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function buildVQuiz(t){
+  var box=document.getElementById('vqb'+t);if(!box||box.innerHTML!=='')return;
+  box.innerHTML=VQUIZ[t].map(function(q,i){
+    return '<div class="qq"><div class="qtext">Q'+(i+1)+'. '+q.q+'</div><div class="qopts">'+
+      q.o.map(function(o,j){return '<button class="qopt" id="VQ'+t+'_'+i+'_'+j+'" onclick="doVAns('+t+','+i+','+j+')">'+'ABCD'[j]+'. '+o+'</button>';}).join('')+
+      '</div><div class="qfb" id="VF'+t+'_'+i+'"></div></div>';}).join('');
+}
+function doVAns(t,i,j){
+  if(vqAns[t][i])return;vqAns[t][i]=true;
+  var q=VQUIZ[t][i];
+  [0,1,2,3].forEach(function(k){var b=document.getElementById('VQ'+t+'_'+i+'_'+k);if(!b)return;b.disabled=true;if(k===q.a)b.classList.add('ok');if(k===j&&j!==q.a)b.classList.add('no');});
+  var fb=document.getElementById('VF'+t+'_'+i);
+  if(j===q.a){vqSc[t]++;fb.textContent='✅ '+q.x;fb.className='qfb ok';}
+  else{fb.textContent='❌ '+q.x;fb.className='qfb no';}
+}
+
+updateProg();
+</script>
+</body>
+</html>
